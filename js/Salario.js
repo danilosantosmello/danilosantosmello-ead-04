@@ -46,36 +46,37 @@ class Salario {
             }
         }
     }
-    get descontoIRPF(){
-        let baseCalculo = this._salarioBruto-this._descontoINSS
-        if(baseCalculo <= 1903.98){
-            this._descontoIRRF = 0.00;
+ get descontoIRPF(){
+    let baseCalculo = this._salarioBruto-this._descontoINSS
+    if(baseCalculo <= 1903.98){
+         this._descontoIRRF = 0.00;
             return this._descontoIRRF;
-        }
-        else{
-            if(baseCalculo <= 2826.65){
-                this._descontoIRRF = Number(((baseCalculo *0.075)-142.80).toFixed(2));
-                return this._descontoIRRF;
-            }
-            else{
-                if(baseCalculo <=3751.05){
-                    this._descontoIRRF = Number(((baseCalculo *0.15)-354.80).toFixed(2));
-                    return this._descontoIRRF;
-                }
-                else{
-                    if(baseCalculo <=4664.68){
-                        this._descontoIRRF = Number(((baseCalculo *0.225)-636.13).toFixed(2));
-                        return this._descontoIRRF;
-                    }
-                    else{
-                        this._descontoIRRF = Number(((baseCalculo *0.275)-869.36).toFixed(2));
-                        return this._descontoIRRF;
-                    }
-                }
-            }
-        }
+ }
 
-    }
+  else{
+    if(baseCalculo <= 2826.65){
+         this._descontoIRRF = Number(((baseCalculo *0.075)-142.80).toFixed(2));
+        return this._descontoIRRF;
+ }
+  else{
+     if(baseCalculo <=3751.05){
+      this._descontoIRRF = Number(((baseCalculo *0.15)-354.80).toFixed(2));
+         return this._descontoIRRF;
+ }
+    else{
+        if(baseCalculo <=4664.68){
+         this._descontoIRRF = Number(((baseCalculo *0.225)-636.13).toFixed(2));
+            return this._descontoIRRF;
+}
+        else{
+            this._descontoIRRF = Number(((baseCalculo *0.275)-869.36).toFixed(2));
+         return this._descontoIRRF;
+     }
+   }
+ }
+}
+
+}
 
     get totalDescontos(){
         return this._descontoINSS + this._descontoIRRF;
